@@ -1,0 +1,84 @@
+<template>
+    <lightning-card title="User creation" icon-name="standard:user">
+        <div class="slds-var-m-around_small">
+            <div class="spinner">
+                <template if:true={isLoading}>
+                    <lightning-spinner
+                        alternative-text="Loading"
+                        variant="brand"
+                        size="large"
+                    >
+                    </lightning-spinner>
+                </template>
+            </div>
+            <lightning-dual-listbox
+                name="states"
+                label="Select states"
+                source-label="All states"
+                selected-label="Selected states"
+                field-level-help="Select states from whose contacts you want to create Users"
+                options={states}
+                onchange={handleChange}
+            ></lightning-dual-listbox>
+            <div class="slds-box slds-m-top_x-small">
+                <p>
+                    <span style="color: #004487"
+                        ><b>Selected states are:</b></span
+                    >{showSelected}
+                </p>
+            </div>
+            <div class="slds-m-top_x-small">
+                <lightning-button
+                    variant="success"
+                    label="Check Contacts"
+                    title="Check Contacts"
+                    onclick={handleCheckContacts}
+                    class="slds-m-right_small"
+                    disabled={isCheckContactsDisabled}
+                ></lightning-button>
+                <lightning-button
+                    variant="brand"
+                    label="Create Users"
+                    title="Create Users"
+                    onclick={handleCreateUsers}
+                    class="slds-m-right_small"
+                    disabled={isCreateUsersDisabled}
+                ></lightning-button>
+                <lightning-button
+                    variant="destructive"
+                    label="Clear Logs"
+                    title="Clear Logs"
+                    onclick={handleClearLogs}
+                    class="slds-m-right_small"
+                    disabled={isClearLogsDisabled}
+                ></lightning-button>
+                <lightning-button
+                    label="Download Report"
+                    title="Download Report"
+                    onclick={handleDownloadReport}
+                    class="slds-m-right_small"
+                    disabled={isDownloadReportDisabled}
+                ></lightning-button>
+                <lightning-button
+                    label="Generate PDF"
+                    title="Generate PDF"
+                    onclick={showPdf}
+                    disabled={isDownloadReportDisabled}
+                ></lightning-button>
+            </div>
+            <div
+                if:true={logsExist}
+                class="slds-box slds-m-top_x-small slds-scrollable"
+                style="
+                    height: 26rem;
+                    font-family: 'Source Code Pro', monospace;
+                    font-size: small;
+                "
+            >
+                <lightning-formatted-rich-text
+                    value={logs}
+                ></lightning-formatted-rich-text>
+            </div>
+        </div>
+    </lightning-card>
+</template>

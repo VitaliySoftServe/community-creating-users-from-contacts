@@ -1,0 +1,4 @@
+<apex:page controller="ContactsToUsersPdfController" renderAs="pdf">
+     <div align="right">{!todayDate}</div>
+<apex:outputText value="{!text}" escape="false"/>
+</apex:page>

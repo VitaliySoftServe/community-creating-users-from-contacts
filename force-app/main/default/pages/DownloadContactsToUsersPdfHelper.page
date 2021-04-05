@@ -1,0 +1,9 @@
+<apex:page id="MainPage"
+           controller="ContactsToUsersPdfController"
+           showHeader="false" 
+           cache="true"
+           contentType="application/x-pdf#{!Name}.pdf">
+
+    <!-- Here comes another page with a content to be converted to PDF -->
+    <apex:include pageName="ContactsToUsersGeneratePdf"/>
+</apex:page>
