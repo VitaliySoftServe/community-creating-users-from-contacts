@@ -3,7 +3,7 @@ import createNewUsersFromContactsByStates from '@salesforce/apex/ContactsToUsers
 import checkContacts from '@salesforce/apex/ContactsToUsersController.checkContacts';
 import { NavigationMixin } from 'lightning/navigation';
 
-export default class UsercreatingUsersFromContactss extends NavigationMixin(
+export default class CreatingUsersFromContacts extends NavigationMixin(
     LightningElement
 ) {
     isLoading = false;
