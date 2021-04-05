@@ -12,6 +12,7 @@ export default class CreatingUsersFromContacts extends NavigationMixin(
     selected = [];
     isClearLogsDisabled = true;
     isDownloadReportDisabled = true;
+    
     get showSelected() {
         let fullNames = [];
         this.selected.forEach((element) => {
